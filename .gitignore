@@ -1,0 +1,5 @@
+.vscode
+services.json
+.noseids
+__pycache__
+*.pyc

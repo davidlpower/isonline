@@ -1,0 +1,18 @@
+{
+  "services": [
+    {
+      "name": "service_name",
+      "url": "service_url",
+      "status": {
+        "selector": "service_selector",
+        "indicator": "service_indicator"
+      },
+      "checks": [
+        {
+          "name": "service_check_name",
+          "uri": "service_check_uri"
+        }
+      ]
+    }
+  ]
+}

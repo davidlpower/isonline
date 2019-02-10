@@ -1,0 +1,64 @@
+{
+  "services": [
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com",
+      "status": {
+        "selector": "#badges",
+        "indicator": "LIVE NOW"
+      },
+      "checks": [
+        {
+          "name": "Avxry",
+          "uri": "/user/Avxry/"
+        }
+      ]
+    },
+    {
+      "name": "Twitch",
+      "url": "https://www.twitch.tv",
+      "status": {
+        "selector": "div.tw-channel-status-indicator--live",
+        "indicator": ""
+      },
+      "checks": [
+        {
+          "name": "skadoodle",
+          "uri": "/skadoodle/videos"
+        },
+        {
+          "name": "ninja",
+          "uri": "/ninja/videos"
+        }
+      ]
+    },
+    {
+      "name": "Mixer",
+      "url": "https://mixer.com",
+      "status": {
+        "selector": "b-player",
+        "indicator": "pause"
+      },
+      "checks": [
+        {
+          "name": "VileBard",
+          "uri": "/VileBard"
+        }
+      ]
+    },
+    {
+      "name": "Periscope",
+      "url": "https://www.pscp.tv",
+      "status": {
+        "selector": ".ViewerBadge-mode",
+        "indicator": "LIVE"
+      },
+      "checks": [
+        {
+          "name": "BAFTA",
+          "uri": "/BAFTA"
+        }
+      ]
+    }
+  ]
+}
