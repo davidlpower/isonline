@@ -28,7 +28,7 @@ def createDriver():
                                   'browserName': 'chrome',
                                   'javascriptEnabled': True
                               })
-    wait = WebDriverWait(driver, 5)
+    wait = WebDriverWait(driver, 8)
     return driver, wait
 
 
