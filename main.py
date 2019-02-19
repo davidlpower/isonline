@@ -8,12 +8,12 @@ from selenium import webdriver
 def initialize():
     config_file = 'services.json'
     stauts_check_items = []
-    itemFactory = StatusCheckItemFactory()
+    item_factory = StatusCheckItemFactory()
     configuration = Config(config_file)
 
     for service in configuration.services:
         for check in service['checks']:
-            stauts_check_items.append(itemFactory.build(service, check))
+            stauts_check_items.append(item_factory.build(service, check))
     return stauts_check_items
 
 
