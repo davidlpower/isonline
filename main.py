@@ -11,9 +11,9 @@ def initialize():
     itemFactory = StatusCheckItemFactory()
     configuration = Config(config_file)
 
-    for s in configuration.services:
-        for p in s['checks']:
-            stauts_check_items.append(itemFactory.build(s, p))
+    for service in configuration.services:
+        for check in service['checks']:
+            stauts_check_items.append(itemFactory.build(service, check))
     return stauts_check_items
 
 
@@ -28,7 +28,7 @@ def createDriver():
                                   'browserName': 'chrome',
                                   'javascriptEnabled': True
                               })
-    wait = WebDriverWait(driver, 8)
+    wait = WebDriverWait(driver, 10)
     return driver, wait
 
 
