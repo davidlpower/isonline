@@ -1,5 +1,7 @@
 .vscode
+.idea
 services.json
 .noseids
 __pycache__
 *.pyc
+*.png
