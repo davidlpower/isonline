@@ -6,6 +6,6 @@ from lib.check import Check
 class StatusCheckItemFactory:
 
     def build(self, service, check):
-        new_service = Service(service['name'], service['url'], service['status'])
+        new_service = Service(service['name'], service['url'], service['status'], service['mature_content_check'])
         new_check = Check(check['name'], check['uri'])
         return StatusCheckItem(new_service, new_check)

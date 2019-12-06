@@ -9,9 +9,10 @@ class TestService(unittest.TestCase):
         name = 'service_name'
         url = 'service_url'
         status = 'service_status'
-
+        is_mature = False
+        
         # Act
-        service_under_test = Service(name, url, status)
+        service_under_test = Service(name, url, status, is_mature)
 
         # Assert
         self.assertEqual(service_under_test.name, name,

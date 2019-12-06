@@ -9,6 +9,7 @@ class StatusCheckItem:
     def __init__(self, service, check):
         self.id = f"{service.name} - {check.name}"
         self.url = f"{service.url}{check.uri}"
+        service_mature = False
         self.selector = service.status['selector']
         self.indicator = service.status['indicator']
 
@@ -21,6 +22,7 @@ class TestStatusCheckItem(unittest.TestCase):
         # Arrange
         service_name = 'service_name'
         service_url = 'service_url'
+        service_mature = False
         service_status = {
             'selector': 'test_selector',
             'indicator': 'test_indicator'
@@ -34,7 +36,7 @@ class TestStatusCheckItem(unittest.TestCase):
         expected_selector = service_status['selector']
         expected_indicator = service_status['indicator']
 
-        test_service = Service(service_name, service_url, service_status)
+        test_service = Service(service_name, service_url, service_status, service_mature)
         test_check = Check(check_name, check_uri)
 
         # Act

@@ -5,3 +5,4 @@ class StatusCheckItem:
         self.url = f"{service.url}{check.uri}"
         self.selector = service.status['selector']
         self.indicator = service.status['indicator']
+        self.is_mature = service.is_mature
