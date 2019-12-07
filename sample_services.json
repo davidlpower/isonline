@@ -3,60 +3,64 @@
     {
       "name": "YouTube",
       "url": "https://www.youtube.com",
+      "mature_content_check": false,
       "status": {
         "selector": "#badges",
         "indicator": "LIVE NOW"
       },
       "checks": [
         {
-          "name": "Avxry",
-          "uri": "/user/Avxry/"
+          "name": "Sky News",
+          "uri": "/channel/UCoMdktPbSTixAyNGwb-UYkQ"
         }
       ]
     },
     {
       "name": "Twitch",
       "url": "https://www.twitch.tv",
+      "mature_content_check": false,
       "status": {
-        "selector": "div.tw-channel-status-indicator--live",
-        "indicator": ""
+        "selector": ".tw-channel-status-text-indicator",
+        "indicator": "LIVE"
       },
       "checks": [
         {
-          "name": "skadoodle",
-          "uri": "/skadoodle/videos"
+          "name": "bateson87",
+          "uri": "/bateson87"
         },
         {
           "name": "ninja",
-          "uri": "/ninja/videos"
+          "uri": "/ninja"
         }
       ]
     },
     {
       "name": "Mixer",
       "url": "https://mixer.com",
+      "mature_content_check": true,
       "status": {
-        "selector": "b-player",
-        "indicator": "pause"
+        "selector": "button[aria-label='Pause']",
+        "indicator": ""
       },
       "checks": [
         {
-          "name": "VileBard",
-          "uri": "/VileBard"
+          "name": "SheriffStrafe",
+          "uri": "/SheriffStrafe"
         }
       ]
     },
     {
       "name": "Periscope",
       "url": "https://www.pscp.tv",
+      "mature_content_check": false,
       "status": {
         "selector": ".ViewerBadge-mode",
         "indicator": "LIVE"
       },
       "checks": [
         {
-          "name": "BAFTA",
-          "uri": "/BAFTA"
+          "name": "Scott Adams",
+          "uri": "/home/1djxXROnPeEGZ"
         }
       ]
     }
