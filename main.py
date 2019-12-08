@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from lib.status_checker import StatusChecker
 from lib.pre_checker import PreChecker
@@ -12,11 +12,9 @@ def initialize():
     configuration = Config(config_file)
     return configuration.services
 
-
 def printStatus(item, status):
     status = 'Online' if status else "Offline"
-    print(f"{item} is '{status}' - {datetime.datetime.now()}")
-
+    print(f" - {item} is '{status}' - {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}")
 
 def createDriver():
     driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',
@@ -27,7 +25,6 @@ def createDriver():
     wait = WebDriverWait(driver, 10)
     return driver, wait
 
-
 def main():
     driver, wait = createDriver()
     status_checker = StatusChecker(driver, wait)
@@ -35,6 +32,7 @@ def main():
     services = initialize()
 
     for service in services:
+        print(f"Service: {service['name']}")
         # get and save status of each service
         for check in service['checks']['items']:
             # Navigate to page
@@ -45,10 +43,9 @@ def main():
             
             status = status_checker.run(check, service['checks']['status'], service)
             # print status of service
-            printStatus(f"{service['name']} - {check['name']}", status)
+            printStatus(f"{check['name']}", status)
 
     driver.quit()
-
 
 if __name__ == '__main__':
     main()

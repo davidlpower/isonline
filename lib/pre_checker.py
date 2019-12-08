@@ -14,7 +14,7 @@ class PreChecker(Checker):
         try:
             # run each pre check
             for pre_check in pre_checks:
-                print(f"Attempting to complete pre-checks")
+                print(f" > Attempting to complete pre-checks")
                 if pre_check['action'] == 'spacebar':
                     self.wait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, pre_check['selector'])))
                     self._spaceBar()
@@ -25,7 +25,7 @@ class PreChecker(Checker):
                      raise Exception(f"'{pre_check['action']}' is not a valid action")
 
         except WebDriverException as e:
-            print('Error: Something went wrong with the pre check')
+            print(' - Error: Something went wrong with the pre check')
             print(e)
 
     # PRIVATE  
