@@ -35,10 +35,14 @@ def main():
     services = initialize()
 
     for service in services:
-        # run all defined pre checks
-        pre_checker.run(service['pre_checks'])
         # get and save status of each service
         for check in service['checks']['items']:
+            # Navigate to page
+            driver.get(f"{service['url']}{check['uri']}")
+
+            # run all defined pre checks
+            pre_checker.run(service['pre_checks'])
+            
             status = status_checker.run(check, service['checks']['status'], service)
             # print status of service
             printStatus(f"{service['name']} - {check['name']}", status)

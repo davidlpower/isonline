@@ -10,7 +10,6 @@ class StatusChecker(Checker):
         super().__init__(driver, wait)
 
     def run(self, item, status, service):
-        self.driver.get(f"{service['url']}{item['uri']}")
         try:
             self.wait.until(
                 expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, status['selector']),status['indicator']))

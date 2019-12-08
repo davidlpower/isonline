@@ -1,3 +1,5 @@
+import time
+
 from lib.checker import Checker
 
 from selenium.webdriver import ActionChains
@@ -20,9 +22,12 @@ class PreChecker(Checker):
                     print(f"Attempting to click '{pre_check['selector']}'")
                     self.wait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, pre_check['selector'])))
                     self._click(pre_check['selector'])
+                else:
+                     raise Exception(f"'{pre_check['action']}' is not a valid action")
+
         except WebDriverException as e:
             print('Error: Something went wrong with the pre check')
-            print(str(e))
+            print(e)
 
     # PRIVATE  
     def _spaceBar(self):
