@@ -2,17 +2,26 @@
   "services": [
     {
       "name": "service_name",
-      "url": "service_url",
-      "status": {
-        "selector": "service_selector",
-        "indicator": "service_indicator"
-      },
-      "checks": [
+      "url": "https://www.service_url.com",
+      "pre_checks": [
         {
-          "name": "service_check_name",
-          "uri": "service_check_uri"
+          "action": "click",
+          "selector": "pre_checks_selector"
         }
-      ]
+      ],
+      "checks": {
+        "status": {
+          "selector": "checks_selector",
+          "indicator": "LIVE"
+        },
+        "items":
+        [
+          {
+            "name": "Person",
+            "uri": "/person"
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,5 +1,7 @@
+import datetime
+
 from lib.status_checker import StatusChecker
-from lib.factories.status_check_item_factory import StatusCheckItemFactory
+from lib.pre_checker import PreChecker
 from lib.config import Config
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
@@ -7,19 +9,13 @@ from selenium import webdriver
 
 def initialize():
     config_file = 'services.json'
-    stauts_check_items = []
-    item_factory = StatusCheckItemFactory()
     configuration = Config(config_file)
-
-    for service in configuration.services:
-        for check in service['checks']:
-            stauts_check_items.append(item_factory.build(service, check))
-    return stauts_check_items
+    return configuration.services
 
 
 def printStatus(item, status):
     status = 'Online' if status else "Offline"
-    print(f"{item.id} is '{status}'.")
+    print(f"{item} is '{status}' - {datetime.datetime.now()}")
 
 
 def createDriver():
@@ -34,12 +30,18 @@ def createDriver():
 
 def main():
     driver, wait = createDriver()
-    checker = StatusChecker(driver, wait)
-    status_check_items = initialize()
+    status_checker = StatusChecker(driver, wait)
+    pre_checker = PreChecker(driver, wait)
+    services = initialize()
 
-    for item in status_check_items:
-        status = checker.get_status(item)
-        printStatus(item, status)
+    for service in services:
+        # run all defined pre checks
+        pre_checker.run(service['pre_checks'])
+        # get and save status of each service
+        for check in service['checks']['items']:
+            status = status_checker.run(check, service['checks']['status'], service)
+            # print status of service
+            printStatus(f"{service['name']} - {check['name']}", status)
 
     driver.quit()
 
