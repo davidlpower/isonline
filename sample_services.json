@@ -3,62 +3,79 @@
     {
       "name": "YouTube",
       "url": "https://www.youtube.com",
-      "status": {
-        "selector": "#badges",
-        "indicator": "LIVE NOW"
-      },
-      "checks": [
-        {
-          "name": "Sky News",
-          "uri": "/channel/UCoMdktPbSTixAyNGwb-UYkQ"
-        }
-      ]
+      "pre_checks": [],
+      "checks": {
+        "status": {
+          "selector": "#badges",
+          "indicator": "LIVE NOW"
+        },
+        "items": [
+          {
+            "name": "Sky News",
+            "uri": "/channel/UCoMdktPbSTixAyNGwb-UYkQ"
+          }
+        ]
+      }
     },
     {
       "name": "Twitch",
       "url": "https://www.twitch.tv",
-      "status": {
-        "selector": ".tw-channel-status-text-indicator",
-        "indicator": "LIVE"
-      },
-      "checks": [
-        {
-          "name": "bateson87",
-          "uri": "/bateson87"
+      "pre_checks": [],
+      "checks": {
+        "status": {
+          "selector": ".tw-channel-status-text-indicator",
+          "indicator": "LIVE"
         },
-        {
-          "name": "ninja",
-          "uri": "/ninja"
-        }
-      ]
+        "items": [
+          {
+            "name": "bateson87",
+            "uri": "/bateson87"
+          },
+          {
+            "name": "ninja",
+            "uri": "/ninja"
+          }
+        ]
+      }
     },
     {
       "name": "Mixer",
       "url": "https://mixer.com",
-      "status": {
-        "selector": "button[aria-label='Pause']",
-        "indicator": ""
-      },
-      "checks": [
-        {
-          "name": "SheriffStrafe",
-          "uri": "/SheriffStrafe"
-        }
-      ]
+      "pre_checks": [],
+      "checks": {
+        "status": {
+          "selector": "button[aria-label='Pause']",
+          "indicator": ""
+        },
+        "items": [
+          {
+            "name": "SheriffStrafe",
+            "uri": "/SheriffStrafe"
+          }
+        ]
+      }
     },
     {
       "name": "Periscope",
       "url": "https://www.pscp.tv",
-      "status": {
-        "selector": ".ViewerBadge-mode",
-        "indicator": "LIVE"
-      },
-      "checks": [
+      "pre_checks": [
         {
-          "name": "Scott Adams",
-          "uri": "/home/1djxXROnPeEGZ"
+          "action": "spacebar",
+          "selector": ""
         }
-      ]
+      ],
+      "checks":{
+        "status": {
+          "selector": ".ViewerBadge-mode",
+          "indicator": "LIVE"
+        }, 
+        "items": [
+          {
+            "name": "Scott Adams",
+            "uri": "/home/1djxXROnPeEGZ"
+          }
+        ]
+      }
     }
   ]
 }
