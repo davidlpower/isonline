@@ -14,7 +14,8 @@ def initialize():
 
 def printStatus(item, status):
     status = 'Online' if status else "Offline"
-    print(f" - {item} is '{status}' - {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}")
+    date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    print(f" - {item} is '{status}' - {date}")
 
 def createDriver():
     driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',
